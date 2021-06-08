@@ -1,0 +1,22 @@
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "username": "adam_richard",
+  "email": "AdamRichard@gmail.com",
+  "password": "richard_567"
+  
+}
+###
+POST http://localhost:4000/login/
+Content-Type: application/json
+
+{
+  "username": "adam_richard",
+  "password": "richard_567"
+}
+
+###
+
+GET  http://localhost:4000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkYW1fcmljaGFyZCIsImlhdCI6MTYyMzEzMDAxOX0.GOVUIcKEUmHA3D0y8Uptth4s1Lie4pZEt1blu5etxF8
