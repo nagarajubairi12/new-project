@@ -18,7 +18,7 @@ const initializeDBAndServer = async () => {
       driver: sqlite3.Database,
     });
     app.listen(4000, () => {
-      console.log("Server Running at http://localhost:3000/");
+      console.log("Server Running at http://localhost:4000/");
     });
   } catch (e) {
     console.log(`DB Error: ${e.message}`);
@@ -54,6 +54,7 @@ const isValiedPassword = (password) => {
   return password.length > 6;
 };
 
+/// user registration
 
 app.post("/register", async (request, response) => {
   const { username, password, email } = request.body;
@@ -89,6 +90,8 @@ app.post("/register", async (request, response) => {
   }
 });
 
+/// user Login
+
 app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
   const selectUserQuery = `SELECT * FROM user WHERE user_name = '${username}'`;
@@ -110,6 +113,8 @@ app.post("/login/", async (request, response) => {
     }
   }
 });
+
+///user can access only login condition
 
 app.get("/user/", authenticateToken, async (request, response) => {
   const getUserQuery = `
